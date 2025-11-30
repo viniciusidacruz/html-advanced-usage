@@ -32,11 +32,11 @@ Este projeto foi criado para compartilhar conhecimento e facilitar o dia a dia d
 
 ### HTML Avançado
 
-| Elemento | Descrição |
-|----------|-----------|
+| Elemento   | Descrição                                                      |
+| ---------- | -------------------------------------------------------------- |
 | `<dialog>` | Modal nativo com backdrop, acessibilidade e fechamento com ESC |
 
-*Mais conteúdos em breve...*
+_Mais conteúdos em breve..._
 
 ## 🛠️ Como executar
 
