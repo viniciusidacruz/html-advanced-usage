@@ -48,13 +48,14 @@ export default function Home() {
       </header>
 
       <section>
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center justify-between mb-8 flex-col md:flex-row gap-4">
           <div>
             <h2 className="text-2xl font-bold text-zinc-100">Conteúdos</h2>
             <p className="text-zinc-500 text-sm mt-1">
               Explore os temas disponíveis e futuros
             </p>
           </div>
+
           <div className="flex items-center gap-3 text-xs">
             <span className="flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-emerald-500" />
