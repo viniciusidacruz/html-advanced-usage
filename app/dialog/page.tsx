@@ -1,5 +1,6 @@
 "use client";
 
+import { Metadata } from "next";
 import { useRef, useState } from "react";
 
 import { Header, Button, Document, Language } from "@/components";
@@ -10,6 +11,12 @@ import {
   DIALOG_CODE_REACT,
   DIALOG_CODE_HTML,
 } from "@/constants";
+
+export const metadata: Metadata = {
+  title: "Dialog | Frontend Lab",
+  description:
+    "O elemento &lt;dialog&gt; é uma forma nativa de criar modais e pop-ups no HTML.",
+};
 
 export default function DialogPage() {
   const [language, setLanguage] = useState<Language>(Language.REACT);
