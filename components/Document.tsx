@@ -1,12 +1,35 @@
 "use client";
 
-import { ReactNode } from "react";
+import Image from "next/image";
+import { ComponentProps, ReactNode } from "react";
 
 import { useCopy } from "@/hooks/useCopy";
 
 interface Props {
   children: ReactNode;
 }
+
+export enum Language {
+  HTML = "html",
+  JAVASCRIPT = "javascript",
+  REACT = "react",
+}
+
+const ICON_LANGUAGE: Record<Language, string> = {
+  [Language.HTML]: "/html.svg",
+  [Language.JAVASCRIPT]: "/js.svg",
+  [Language.REACT]: "/react.svg",
+};
+
+const LANGUAGE_TITLE: Record<Language, string> = {
+  [Language.HTML]: "HTML",
+  [Language.JAVASCRIPT]: "JavaScript",
+  [Language.REACT]: "React",
+};
+
+type IconLanguageProps = ComponentProps<"button"> & {
+  language: Language;
+};
 
 const Root = ({ children }: Props) => (
   <section className="mt-12">{children}</section>
@@ -62,15 +85,32 @@ const Pre = ({ children }: Props) => {
   );
 };
 
+const IconLanguage = ({ language, ...props }: Readonly<IconLanguageProps>) => (
+  <button
+    type="button"
+    className="hover:opacity-80 transition-opacity"
+    title={LANGUAGE_TITLE[language]}
+    {...props}
+  >
+    <Image
+      width={20}
+      height={20}
+      alt={language}
+      src={ICON_LANGUAGE[language]}
+    />
+  </button>
+);
+
 export const Document = {
-  Root,
-  Heading2,
-  List,
-  ListItem,
   Dot,
-  Paragraph,
-  BlockquoteContainer,
-  Blockquote,
-  Code,
   Pre,
+  Root,
+  List,
+  Code,
+  Heading2,
+  ListItem,
+  Paragraph,
+  Blockquote,
+  IconLanguage,
+  BlockquoteContainer,
 };

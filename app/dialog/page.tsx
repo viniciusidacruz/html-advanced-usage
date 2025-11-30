@@ -1,14 +1,21 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
-import { Header, Button, Document } from "@/components";
+import { Header, Button, Document, Language } from "@/components";
 
-import { DIALOG_CARACTERS, DIALOG_METHODS, DIALOG_CODE } from "@/constants";
+import {
+  DIALOG_CARACTERS,
+  DIALOG_METHODS,
+  DIALOG_CODE_REACT,
+  DIALOG_CODE_HTML,
+} from "@/constants";
 
 export default function DialogPage() {
+  const [language, setLanguage] = useState<Language>(Language.REACT);
   const dialogDemo = useRef<HTMLDialogElement>(null);
 
+  const isHTML = language === Language.HTML;
   return (
     <div>
       <Header
@@ -39,9 +46,55 @@ export default function DialogPage() {
           ))}
         </Document.BlockquoteContainer>
 
-        <Document.Heading2>Código</Document.Heading2>
+        <Document.Heading2>Como Funciona</Document.Heading2>
 
-        <Document.Pre>{DIALOG_CODE}</Document.Pre>
+        <Document.Paragraph>
+          Para utilizar os métodos nativos do{" "}
+          <Document.Code>&lt;dialog&gt;</Document.Code>, você precisa ter uma
+          referência ao elemento. A forma de obter essa referência varia
+          dependendo do ambiente:
+        </Document.Paragraph>
+
+        <Document.BlockquoteContainer>
+          <Document.Blockquote>
+            <Document.Code>HTML - Usando id</Document.Code>
+            <Document.Paragraph>
+              No HTML puro, basta adicionar um <Document.Code>id</Document.Code>{" "}
+              ao elemento. O navegador cria automaticamente uma variável global
+              com o mesmo nome, permitindo acessar diretamente:{" "}
+              <Document.Code>meuDialog.showModal()</Document.Code>
+            </Document.Paragraph>
+          </Document.Blockquote>
+
+          <Document.Blockquote>
+            <Document.Code>React - Usando useRef</Document.Code>
+            <Document.Paragraph>
+              No React, usamos o hook <Document.Code>useRef</Document.Code> para
+              criar uma referência e a passamos via prop{" "}
+              <Document.Code>ref</Document.Code>. Acessamos o elemento através
+              de <Document.Code>dialogRef.current?.showModal()</Document.Code>
+            </Document.Paragraph>
+          </Document.Blockquote>
+        </Document.BlockquoteContainer>
+
+        <div className="flex gap-2 items-center justify-between max-w-2xl">
+          <Document.Heading2>Código</Document.Heading2>
+
+          <div className="flex gap-6 items-center">
+            <Document.IconLanguage
+              language={Language.HTML}
+              onClick={() => setLanguage(Language.HTML)}
+            />
+            <Document.IconLanguage
+              language={Language.REACT}
+              onClick={() => setLanguage(Language.REACT)}
+            />
+          </div>
+        </div>
+
+        <Document.Pre>
+          {isHTML ? DIALOG_CODE_HTML : DIALOG_CODE_REACT}
+        </Document.Pre>
 
         <Document.Heading2>Demonstração</Document.Heading2>
 
@@ -53,7 +106,6 @@ export default function DialogPage() {
 
         <Button
           onClick={() => {
-            console.log("Abrir Dialog", dialogDemo.current);
             dialogDemo.current?.showModal();
           }}
         >

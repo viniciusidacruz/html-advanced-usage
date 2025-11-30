@@ -18,8 +18,8 @@ export function NavLink({ href, children }: Readonly<NavLinkProps>) {
     <Link
       href={href}
       className={cn(
-        "text-zinc-200 p-4 w-full rounded-md flex hover:bg-zinc-800",
-        isActive && "bg-zinc-800"
+        "text-zinc-200 p-4 w-full rounded-md flex items-center justify-center hover:bg-zinc-800",
+        isActive ? "bg-zinc-800" : "border border-zinc-700"
       )}
     >
       {children}
