@@ -2,22 +2,22 @@ import { ComponentProps } from "react";
 
 import { cn } from "@/config/cn";
 
-type RootProps = ComponentProps<"ul">;
+type RootProps = ComponentProps<"div">;
 type TitleProps = ComponentProps<"h3">;
-type ItemProps = ComponentProps<"li">;
+type ItemProps = ComponentProps<"div">;
 
 const Root = ({ children, className, ...props }: RootProps) => (
-  <ul
-    className={cn("mt-8 w-full overflow-y-auto space-y-6", className)}
-    {...props}
-  >
+  <div className={cn("space-y-1", className)} {...props}>
     {children}
-  </ul>
+  </div>
 );
 
 const Title = ({ children, className, ...props }: TitleProps) => (
   <h3
-    className={cn("text-zinc-100 font-medium mb-4 text-sm", className)}
+    className={cn(
+      "px-3 mb-2 text-xs font-semibold uppercase tracking-wider text-zinc-500",
+      className
+    )}
     {...props}
   >
     {children}
@@ -25,9 +25,9 @@ const Title = ({ children, className, ...props }: TitleProps) => (
 );
 
 const Item = ({ children, className, ...props }: ItemProps) => (
-  <li className={cn("w-full", className)} {...props}>
+  <div className={cn("", className)} {...props}>
     {children}
-  </li>
+  </div>
 );
 
 export const ListMenu = {

@@ -1,10 +1,11 @@
-interface MenuItem {
+export interface MenuItem {
   label: string;
   shortLabel: string;
   href: string;
+  tag?: string;
 }
 
-interface MenuSection {
+export interface MenuSection {
   title: string;
   items: MenuItem[];
 }
@@ -21,4 +22,3 @@ export const MENU_SECTIONS: MenuSection[] = [
     ],
   },
 ];
-

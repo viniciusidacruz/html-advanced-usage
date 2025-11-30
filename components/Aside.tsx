@@ -1,12 +1,14 @@
 "use client";
 
-import { ChevronLeft, Menu } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import { PanelLeftClose, PanelLeft, ExternalLink } from "lucide-react";
 
 import { cn } from "@/config/cn";
 import { MENU_SECTIONS } from "@/constants";
 import { useToggleAside } from "@/hooks/useToggleAside";
 
-import { NavLink, ListMenu, Logo } from "@/components";
+import { NavLink, ListMenu } from "@/components";
 
 export const Aside = () => {
   const { isOpen, toggleAside } = useToggleAside();
@@ -14,30 +16,62 @@ export const Aside = () => {
   return (
     <aside
       className={cn(
-        "bg-zinc-900 h-screen shrink-0 sticky top-0 transition-all duration-300 flex flex-col",
-        isOpen ? "w-sm p-8" : "w-20 p-4 items-center"
+        "bg-zinc-950 h-screen shrink-0 sticky top-0 transition-all duration-300 flex flex-col border-r border-zinc-800/50",
+        isOpen ? "w-64" : "w-16"
       )}
       aria-label="Menu de navegação"
     >
-      <button
-        type="button"
-        className="lg:absolute lg:top-4 lg:right-4 block lg:hidden mb-8 lg:mb-0"
-        onClick={toggleAside}
-        aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
-        aria-expanded={isOpen}
+      <div
+        className={cn(
+          "flex items-center h-16 border-b border-zinc-800/50",
+          isOpen ? "px-4 justify-between" : "px-2 justify-center"
+        )}
       >
-        {isOpen ? <ChevronLeft /> : <Menu />}
-      </button>
+        <Link href="/" className="flex items-center gap-3">
+          <Image
+            src="/logo-collapsed.svg"
+            alt="Frontend Lab"
+            width={32}
+            height={32}
+          />
+          {isOpen && (
+            <span className="font-semibold text-zinc-100">Frontend Lab</span>
+          )}
+        </Link>
 
-      <Logo collapsed={!isOpen} />
+        {isOpen && (
+          <button
+            type="button"
+            onClick={toggleAside}
+            className="p-1.5 rounded-md text-zinc-500 hover:text-zinc-300 hover:bg-zinc-800/50 transition-colors"
+            aria-label="Fechar menu"
+          >
+            <PanelLeftClose size={18} />
+          </button>
+        )}
+      </div>
 
-      <nav aria-label="Menu principal" className="overflow-y-auto flex-1">
+      {!isOpen && (
+        <button
+          type="button"
+          onClick={toggleAside}
+          className="p-2 mx-auto mt-3 rounded-md text-zinc-500 hover:text-zinc-300 hover:bg-zinc-800/50 transition-colors"
+          aria-label="Abrir menu"
+        >
+          <PanelLeft size={18} />
+        </button>
+      )}
+
+      <nav
+        aria-label="Menu principal"
+        className={cn("flex-1 overflow-y-auto py-4", isOpen ? "px-3" : "px-2")}
+      >
         {MENU_SECTIONS.map((section) => (
-          <ListMenu.Root key={section.title}>
-            <ListMenu.Title>{isOpen ? section.title : ""}</ListMenu.Title>
+          <ListMenu.Root key={section.title} className="mb-6">
+            {isOpen && <ListMenu.Title>{section.title}</ListMenu.Title>}
             {section.items.map((item) => (
               <ListMenu.Item key={item.href}>
-                <NavLink href={item.href}>
+                <NavLink href={item.href} collapsed={!isOpen}>
                   {isOpen ? item.label : item.shortLabel}
                 </NavLink>
               </ListMenu.Item>
@@ -45,6 +79,30 @@ export const Aside = () => {
           </ListMenu.Root>
         ))}
       </nav>
+
+      <div
+        className={cn(
+          "border-t border-zinc-800/50 py-4",
+          isOpen ? "px-3" : "px-2"
+        )}
+      >
+        <Link
+          href="https://github.com/viniciusidacruz/frontend_lab"
+          target="_blank"
+          className={cn(
+            "flex items-center gap-2 px-3 py-2 text-sm text-zinc-500 hover:text-zinc-300 rounded-lg hover:bg-zinc-800/50 transition-colors",
+            !isOpen && "justify-center"
+          )}
+        >
+          <Image src="/github.svg" alt="GitHub" width={16} height={16} />
+          {isOpen && (
+            <>
+              <span>GitHub</span>
+              <ExternalLink size={12} className="ml-auto" />
+            </>
+          )}
+        </Link>
+      </div>
     </aside>
   );
 };
