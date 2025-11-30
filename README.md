@@ -24,9 +24,9 @@
   <a href="#-sobre">Sobre</a> •
   <a href="#-tecnologias">Tecnologias</a> •
   <a href="#-estrutura">Estrutura</a> •
+  <a href="#-pré-requisitos">Pré-requisitos</a> •
   <a href="#%EF%B8%8F-como-executar">Como executar</a> •
-  <a href="#-contribuição">Contribuição</a> •
-  <a href="#-autor">Autor</a>
+  <a href="#-contribuição">Contribuição</a>
 </p>
 
 ---
@@ -89,6 +89,17 @@ O **Frontend Lab** é um laboratório de estudos e experimentos práticos voltad
         └── images/         # Imagens
 ```
 
+## 📋 Pré-requisitos
+
+| Ferramenta | Versão    |
+| :--------- | :-------- |
+| Node.js    | ≥ 22.14.0 |
+| Yarn       | ≥ 1.22.22 |
+
+> ⚠️ **Importante:** Este projeto utiliza **apenas Yarn** como gerenciador de pacotes. O uso de `npm` ou `pnpm` está bloqueado.
+
+Se você usa [nvm](https://github.com/nvm-sh/nvm), basta executar `nvm use` na raiz do projeto.
+
 ## 🛠️ Como executar
 
 ```bash
@@ -97,6 +108,9 @@ git clone https://github.com/viniciusidacruz/frontend_lab.git
 
 # Entre na pasta
 cd frontend_lab
+
+# (Opcional) Use a versão correta do Node
+nvm use
 
 # Instale as dependências
 yarn install
