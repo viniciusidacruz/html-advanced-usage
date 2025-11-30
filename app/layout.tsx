@@ -12,8 +12,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Italo Studies | Estudos de Vinicius Italo da Cruz",
-  description: "Estudos de Vinicius Italo da Cruz",
+  title: "Frontend Lab | Estudos de Vinicius Italo da Cruz",
+  description: "Frontend Lab| Estudos de Vinicius Italo da Cruz",
 };
 
 export default function RootLayout({
