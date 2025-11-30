@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { Document } from "@/components";
+import { Document } from "@/shared/components";
 
 import {
   DATALIST_CHARACTERISTICS,
@@ -10,7 +10,7 @@ import {
   DATALIST_CODE_REACT,
   DATALIST_CODE_HTML,
   Language,
-} from "@/constants";
+} from "@/shared/constants";
 
 import { DatalistDemo } from "./components";
 

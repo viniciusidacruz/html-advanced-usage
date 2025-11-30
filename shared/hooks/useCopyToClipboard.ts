@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 
-export const useCopy = () => {
+export const useCopyToClipboard = () => {
   const [isCopied, setIsCopied] = useState(false);
 
   const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text);
+    navigator.clipboard.writeText(JSON.stringify(text));
     setIsCopied(true);
 
     setTimeout(() => {

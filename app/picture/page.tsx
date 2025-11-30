@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { Document } from "@/components";
+import { Document } from "@/shared/components";
 
 import {
   PICTURE_CHARACTERISTICS,
@@ -10,7 +10,7 @@ import {
   PICTURE_CODE_REACT,
   PICTURE_CODE_HTML,
   Language,
-} from "@/constants";
+} from "@/shared/constants";
 
 import { PictureDemo } from "./components";
 
@@ -90,10 +90,11 @@ export default function PicturePage() {
         </div>
       </div>
 
-      <Document.Pre>{isHTML ? PICTURE_CODE_HTML : PICTURE_CODE_REACT}</Document.Pre>
+      <Document.Pre>
+        {isHTML ? PICTURE_CODE_HTML : PICTURE_CODE_REACT}
+      </Document.Pre>
 
       <PictureDemo />
     </Document.Root>
   );
 }
-

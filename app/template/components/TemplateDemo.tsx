@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 
-import { Button, Document } from "@/components";
+import { Button, Document } from "@/shared/components";
 
 export const TemplateDemo = () => {
   const templateRef = useRef<HTMLTemplateElement>(null);
@@ -12,7 +12,9 @@ export const TemplateDemo = () => {
   const addCard = () => {
     if (!templateRef.current || !containerRef.current) return;
 
-    const clone = templateRef.current.content.cloneNode(true) as DocumentFragment;
+    const clone = templateRef.current.content.cloneNode(
+      true
+    ) as DocumentFragment;
     const card = clone.querySelector(".card");
     const title = clone.querySelector("h4");
 
@@ -61,12 +63,9 @@ export const TemplateDemo = () => {
       </div>
 
       <div className="max-w-md">
-        <p className="text-zinc-500 text-sm mb-3">
-          Cards criados: {count}
-        </p>
+        <p className="text-zinc-500 text-sm mb-3">Cards criados: {count}</p>
         <div ref={containerRef} className="space-y-3" />
       </div>
     </>
   );
 };
-

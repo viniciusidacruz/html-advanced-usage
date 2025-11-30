@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { Document } from "@/components";
+import { Document } from "@/shared/components";
 
 import {
   DETAILS_CHARACTERISTICS,
@@ -10,7 +10,7 @@ import {
   DETAILS_CODE_REACT,
   DETAILS_CODE_HTML,
   Language,
-} from "@/constants";
+} from "@/shared/constants";
 
 import { DetailsDemo } from "./components";
 
@@ -89,10 +89,11 @@ export default function DetailsPage() {
         </div>
       </div>
 
-      <Document.Pre>{isHTML ? DETAILS_CODE_HTML : DETAILS_CODE_REACT}</Document.Pre>
+      <Document.Pre>
+        {isHTML ? DETAILS_CODE_HTML : DETAILS_CODE_REACT}
+      </Document.Pre>
 
       <DetailsDemo />
     </Document.Root>
   );
 }
-

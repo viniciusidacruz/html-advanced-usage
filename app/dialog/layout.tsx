@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-import { Header } from "@/components";
+import { Header } from "@/shared/components";
 
 export const metadata: Metadata = {
   title: "Dialog | Frontend Lab",

@@ -2,8 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { ExternalLink, User } from "lucide-react";
 
-import { ContentCard } from "@/components";
-import { CONTENT_CATEGORIES, AUTHOR, PROJECT } from "@/constants";
+import { ContentCard } from "@/shared/components";
+import { CONTENT_CATEGORIES, AUTHOR, PROJECT } from "@/shared/constants";
 
 export default function Home() {
   return (

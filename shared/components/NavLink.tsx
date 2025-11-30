@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { cn } from "@/config/cn";
+import { cn } from "@/shared/config";
 
 interface NavLinkProps {
   href: string;

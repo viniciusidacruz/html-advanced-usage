@@ -1,7 +1,10 @@
-import { cn } from "@/config/cn";
-import type { ContentCategory, CategoryItem } from "@/constants/home";
+import { cn } from "@/shared/config";
+import type { ContentCategory, CategoryItem } from "@/shared/constants/home";
 
-const COLOR_VARIANTS: Record<string, { border: string; bg: string; text: string; badge: string }> = {
+const COLOR_VARIANTS: Record<
+  string,
+  { border: string; bg: string; text: string; badge: string }
+> = {
   orange: {
     border: "border-orange-500/30",
     bg: "bg-orange-500/5",
@@ -104,4 +107,3 @@ export const ContentCard = {
   Root,
   Items,
 };
-

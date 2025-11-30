@@ -1,6 +1,6 @@
 "use client";
 
-import { Document } from "@/components";
+import { Document } from "@/shared/components";
 
 export const DatalistDemo = () => {
   return (
@@ -115,4 +115,3 @@ export const DatalistDemo = () => {
     </>
   );
 };
-

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-import { Header } from "@/components";
+import { Header } from "@/shared/components";
 
 export const metadata: Metadata = {
   title: "Template | Frontend Lab",
@@ -23,4 +23,3 @@ export default function TemplateLayout({
     </div>
   );
 }
-

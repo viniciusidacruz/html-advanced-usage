@@ -1,6 +1,6 @@
 "use client";
 
-import { Document } from "@/components";
+import { Document } from "@/shared/components";
 
 export const PictureDemo = () => {
   return (
@@ -30,17 +30,29 @@ export const PictureDemo = () => {
 
         <div className="grid grid-cols-3 gap-3 text-center text-sm">
           <div className="p-3 bg-cyan-500/20 border border-cyan-500/50 rounded-lg">
-            <img src="/react.png" alt="React" className="w-8 h-8 mx-auto mb-2" />
+            <img
+              src="/react.png"
+              alt="React"
+              className="w-8 h-8 mx-auto mb-2"
+            />
             <div className="text-cyan-400 font-semibold">Mobile</div>
             <div className="text-zinc-400">&lt;768px</div>
           </div>
           <div className="p-3 bg-yellow-500/20 border border-yellow-500/50 rounded-lg">
-            <img src="/js.png" alt="JavaScript" className="w-8 h-8 mx-auto mb-2" />
+            <img
+              src="/js.png"
+              alt="JavaScript"
+              className="w-8 h-8 mx-auto mb-2"
+            />
             <div className="text-yellow-400 font-semibold">Tablet</div>
             <div className="text-zinc-400">≥768px</div>
           </div>
           <div className="p-3 bg-zinc-500/20 border border-zinc-500/50 rounded-lg">
-            <img src="/next.png" alt="Next.js" className="w-8 h-8 mx-auto mb-2" />
+            <img
+              src="/next.png"
+              alt="Next.js"
+              className="w-8 h-8 mx-auto mb-2"
+            />
             <div className="text-zinc-300 font-semibold">Desktop</div>
             <div className="text-zinc-400">≥1024px</div>
           </div>
@@ -48,7 +60,8 @@ export const PictureDemo = () => {
 
         <Document.Paragraph>
           <strong className="text-zinc-300">Dica:</strong> Abra o DevTools (F12)
-          e alterne entre dispositivos para ver a troca de imagens em tempo real.
+          e alterne entre dispositivos para ver a troca de imagens em tempo
+          real.
         </Document.Paragraph>
       </div>
     </>

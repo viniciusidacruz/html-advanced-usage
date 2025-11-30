@@ -3,11 +3,15 @@
 import Image from "next/image";
 import { ComponentProps, ReactNode } from "react";
 
-import { useCopy } from "@/hooks/useCopy";
-import { Language, ICON_LANGUAGE, LANGUAGE_TITLE } from "@/constants";
+import { useCopyToClipboard } from "@/shared/hooks";
+import { Language, ICON_LANGUAGE, LANGUAGE_TITLE } from "@/shared/constants";
 
 interface Props {
   children: ReactNode;
+}
+
+interface PreProps {
+  children: string;
 }
 
 type IconLanguageProps = ComponentProps<"button"> & {
@@ -50,15 +54,15 @@ const Code = ({ children }: Props) => (
   <code className="text-zinc-100 font-mono font-semibold">{children}</code>
 );
 
-const Pre = ({ children }: Props) => {
-  const { isCopied, copyToClipboard } = useCopy();
+const Pre = ({ children }: PreProps) => {
+  const { isCopied, copyToClipboard } = useCopyToClipboard();
 
   return (
     <div className="relative text-sm text-zinc-100 p-4 mb-6 max-w-2xl bg-zinc-900 rounded-lg border border-zinc-800 overflow-x-auto">
       <button
         type="button"
         className="absolute top-4 right-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
-        onClick={() => copyToClipboard(children?.toString() ?? "")}
+        onClick={() => copyToClipboard(children)}
       >
         {isCopied ? "Copiado" : "Copiar"}
       </button>

@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 
-import { Button, Document } from "@/components";
+import { Button, Document } from "@/shared/components";
 
 export const DialogDemo = () => {
   const dialogRef = useRef<HTMLDialogElement>(null);

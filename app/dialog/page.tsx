@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { Document } from "@/components";
+import { Document } from "@/shared/components";
 
 import {
   DIALOG_CHARACTERISTICS,
@@ -10,7 +10,7 @@ import {
   DIALOG_CODE_REACT,
   DIALOG_CODE_HTML,
   Language,
-} from "@/constants";
+} from "@/shared/constants";
 
 import { DialogDemo } from "./components";
 

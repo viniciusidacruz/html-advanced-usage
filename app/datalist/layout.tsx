@@ -1,11 +1,10 @@
 import { Metadata } from "next";
 
-import { Header } from "@/components";
+import { Header } from "@/shared/components";
 
 export const metadata: Metadata = {
   title: "Datalist | Frontend Lab",
-  description:
-    "O elemento <datalist> cria autocomplete nativo para inputs.",
+  description: "O elemento <datalist> cria autocomplete nativo para inputs.",
 };
 
 export default function DatalistLayout({
@@ -23,4 +22,3 @@ export default function DatalistLayout({
     </div>
   );
 }
-

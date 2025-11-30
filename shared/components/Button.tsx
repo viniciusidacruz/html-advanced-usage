@@ -1,6 +1,6 @@
 import { ComponentProps } from "react";
 
-import { cn } from "@/config/cn";
+import { cn } from "@/shared/config";
 
 type ButtonVariant = "primary" | "secondary";
 

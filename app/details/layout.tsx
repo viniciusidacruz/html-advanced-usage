@@ -1,11 +1,10 @@
 import { Metadata } from "next";
 
-import { Header } from "@/components";
+import { Header } from "@/shared/components";
 
 export const metadata: Metadata = {
   title: "Details | Frontend Lab",
-  description:
-    "O elemento <details> cria accordions nativos sem JavaScript.",
+  description: "O elemento <details> cria accordions nativos sem JavaScript.",
 };
 
 export default function DetailsLayout({
@@ -23,4 +22,3 @@ export default function DetailsLayout({
     </div>
   );
 }
-

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { Document } from "@/components";
+import { Document } from "@/shared/components";
 
 import {
   TEMPLATE_CHARACTERISTICS,
@@ -10,7 +10,7 @@ import {
   TEMPLATE_CODE_REACT,
   TEMPLATE_CODE_HTML,
   Language,
-} from "@/constants";
+} from "@/shared/constants";
 
 import { TemplateDemo } from "./components";
 
@@ -55,8 +55,8 @@ export default function TemplatePage() {
         <Document.Blockquote>
           <Document.Code>Conteúdo inerte</Document.Code>
           <Document.Paragraph>
-            Scripts não executam, imagens não carregam, estilos não aplicam
-            até o template ser clonado e inserido no documento.
+            Scripts não executam, imagens não carregam, estilos não aplicam até
+            o template ser clonado e inserido no documento.
           </Document.Paragraph>
         </Document.Blockquote>
 
@@ -86,10 +86,11 @@ export default function TemplatePage() {
         </div>
       </div>
 
-      <Document.Pre>{isHTML ? TEMPLATE_CODE_HTML : TEMPLATE_CODE_REACT}</Document.Pre>
+      <Document.Pre>
+        {isHTML ? TEMPLATE_CODE_HTML : TEMPLATE_CODE_REACT}
+      </Document.Pre>
 
       <TemplateDemo />
     </Document.Root>
   );
 }
-

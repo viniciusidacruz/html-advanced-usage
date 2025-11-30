@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 
-import { Aside } from "@/components";
+import { Aside } from "@/shared/components";
 
 import "./globals.css";
 

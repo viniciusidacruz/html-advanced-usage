@@ -4,11 +4,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { PanelLeftClose, PanelLeft, ExternalLink } from "lucide-react";
 
-import { cn } from "@/config/cn";
-import { MENU_SECTIONS } from "@/constants";
-import { useToggleAside } from "@/hooks/useToggleAside";
+import { cn } from "@/shared/config";
+import { useToggleAside } from "@/shared/hooks";
+import { MENU_SECTIONS } from "@/shared/constants";
 
-import { NavLink, ListMenu } from "@/components";
+import { NavLink, ListMenu } from "@/shared/components";
 
 export const Aside = () => {
   const { isOpen, toggleAside } = useToggleAside();
