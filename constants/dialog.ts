@@ -1,4 +1,4 @@
-export const DIALOG_CARACTERS = [
+export const DIALOG_CHARACTERISTICS = [
   {
     title: "Acessibilidade nativa",
     description: "Gerencia foco automaticamente e suporta leitores de tela",

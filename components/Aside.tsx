@@ -18,23 +18,28 @@ export const Aside = () => {
         "bg-zinc-900 h-full shrink-0 relative transition-all duration-300 flex flex-col",
         isOpen ? "w-sm p-8" : "w-20 p-4 items-center"
       )}
+      aria-label="Menu de navegação"
     >
       <button
         type="button"
         className="lg:absolute lg:top-4 lg:right-4 block lg:hidden mb-8 lg:mb-0"
         onClick={toggleAside}
+        aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
+        aria-expanded={isOpen}
       >
         {isOpen ? <ChevronLeft /> : <Menu />}
       </button>
 
       <Logo collapsed={!isOpen} />
 
-      <ListMenu.Root>
-        <ListMenu.Title>HTML</ListMenu.Title>
-        <ListMenu.Item title="Dialog">
-          <NavLink href="/dialog">{isOpen ? "Dialog" : "D"}</NavLink>
-        </ListMenu.Item>
-      </ListMenu.Root>
+      <nav aria-label="Menu principal">
+        <ListMenu.Root>
+          <ListMenu.Title>HTML</ListMenu.Title>
+          <ListMenu.Item>
+            <NavLink href="/dialog">{isOpen ? "Dialog" : "D"}</NavLink>
+          </ListMenu.Item>
+        </ListMenu.Root>
+      </nav>
     </aside>
   );
 };

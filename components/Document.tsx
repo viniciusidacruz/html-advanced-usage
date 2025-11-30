@@ -4,28 +4,11 @@ import Image from "next/image";
 import { ComponentProps, ReactNode } from "react";
 
 import { useCopy } from "@/hooks/useCopy";
+import { Language, ICON_LANGUAGE, LANGUAGE_TITLE } from "@/constants";
 
 interface Props {
   children: ReactNode;
 }
-
-export enum Language {
-  HTML = "html",
-  JAVASCRIPT = "javascript",
-  REACT = "react",
-}
-
-const ICON_LANGUAGE: Record<Language, string> = {
-  [Language.HTML]: "/html.svg",
-  [Language.JAVASCRIPT]: "/js.svg",
-  [Language.REACT]: "/react.svg",
-};
-
-const LANGUAGE_TITLE: Record<Language, string> = {
-  [Language.HTML]: "HTML",
-  [Language.JAVASCRIPT]: "JavaScript",
-  [Language.REACT]: "React",
-};
 
 type IconLanguageProps = ComponentProps<"button"> & {
   language: Language;

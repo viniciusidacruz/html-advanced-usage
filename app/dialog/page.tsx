@@ -1,30 +1,33 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 
-import { Button, Document, Language } from "@/components";
+import { Document } from "@/components";
 
 import {
-  DIALOG_CARACTERS,
+  DIALOG_CHARACTERISTICS,
   DIALOG_METHODS,
   DIALOG_CODE_REACT,
   DIALOG_CODE_HTML,
+  Language,
 } from "@/constants";
+
+import { DialogDemo } from "./components";
 
 export default function DialogPage() {
   const [language, setLanguage] = useState<Language>(Language.REACT);
-  const dialogDemo = useRef<HTMLDialogElement>(null);
 
   const isHTML = language === Language.HTML;
+
   return (
     <Document.Root>
       <Document.Heading2>Principais Características</Document.Heading2>
 
       <Document.List>
-        {DIALOG_CARACTERS.map((character) => (
-          <Document.ListItem key={character.title}>
+        {DIALOG_CHARACTERISTICS.map((characteristic) => (
+          <Document.ListItem key={characteristic.title}>
             <Document.Dot />
-            <span>{character.description}</span>
+            <span>{characteristic.description}</span>
           </Document.ListItem>
         ))}
       </Document.List>
@@ -78,63 +81,19 @@ export default function DialogPage() {
           <Document.IconLanguage
             language={Language.HTML}
             onClick={() => setLanguage(Language.HTML)}
+            aria-label="Ver código HTML"
           />
           <Document.IconLanguage
             language={Language.REACT}
             onClick={() => setLanguage(Language.REACT)}
+            aria-label="Ver código React"
           />
         </div>
       </div>
 
-      <Document.Pre>
-        {isHTML ? DIALOG_CODE_HTML : DIALOG_CODE_REACT}
-      </Document.Pre>
+      <Document.Pre>{isHTML ? DIALOG_CODE_HTML : DIALOG_CODE_REACT}</Document.Pre>
 
-      <Document.Heading2>Demonstração</Document.Heading2>
-
-      <Document.Paragraph>
-        Clique no botão abaixo para ver o{" "}
-        <Document.Code>&lt;dialog&gt;</Document.Code> em ação. Experimente
-        fechá-lo com a tecla ESC ou clicando nos botões.
-      </Document.Paragraph>
-
-      <Button
-        onClick={() => {
-          dialogDemo.current?.showModal();
-        }}
-      >
-        Abrir Dialog
-      </Button>
-
-      <dialog
-        ref={dialogDemo}
-        className="backdrop:bg-black/50 backdrop:backdrop-blur-sm rounded-2xl p-0 shadow-2xl max-w-md w-full m-auto"
-      >
-        <div className="p-6">
-          <h3 className="text-xl font-bold text-gray-800 mb-2">
-            🎉 Dialog Nativo do HTML!
-          </h3>
-          <p className="text-gray-600 mb-6">
-            Este modal foi criado apenas com HTML e CSS. Sem bibliotecas, sem
-            JavaScript complexo. O backdrop, animação e acessibilidade vêm de
-            graça!
-          </p>
-          <div className="flex gap-3 justify-end">
-            <button
-              onClick={() => dialogDemo.current?.close()}
-              className="px-4 py-2 text-gray-600 hover:text-gray-800 font-medium cursor-pointer"
-            >
-              Cancelar
-            </button>
-            <button
-              onClick={() => dialogDemo.current?.close("confirmed")}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-lg transition-colors cursor-pointer"
-            >
-              Confirmar
-            </button>
-          </div>
-        </div>
-      </dialog>
+      <DialogDemo />
     </Document.Root>
   );
 }
