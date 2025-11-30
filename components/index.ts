@@ -1,5 +1,6 @@
 export * from "./Aside";
 export * from "./Button";
+export * from "./ContentCard";
 export * from "./Document";
 export * from "./Header";
 export * from "./ListMenu";

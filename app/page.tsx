@@ -2,34 +2,32 @@ import Link from "next/link";
 import Image from "next/image";
 import { ExternalLink, User } from "lucide-react";
 
+import { ContentCard } from "@/components";
+import { CONTENT_CATEGORIES, AUTHOR, PROJECT } from "@/constants";
+
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-[80vh] px-8">
-      <div className="text-center max-w-2xl">
+    <div className="max-w-5xl mx-auto px-8 py-12">
+      <header className="text-center mb-16">
         <Image
-          src="/logo-large.svg"
-          alt="Frontend Lab"
-          width={120}
-          height={120}
-          className="drop-shadow-2xl mx-auto mb-8"
+          src={PROJECT.logo}
+          alt={PROJECT.name}
+          width={100}
+          height={100}
+          className="drop-shadow-2xl mx-auto mb-6"
         />
 
         <h1 className="text-4xl md:text-5xl font-bold bg-linear-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent mb-4">
-          Frontend Lab
+          {PROJECT.name}
         </h1>
 
-        <p className="text-lg text-zinc-400 mb-8 leading-relaxed">
-          Um repositório de estudos e experimentos com{" "}
-          <span className="text-orange-400 font-semibold">HTML</span>,{" "}
-          <span className="text-yellow-400 font-semibold">JavaScript</span> e{" "}
-          <span className="text-cyan-400 font-semibold">React</span>. Criado
-          para compartilhar conhecimento e facilitar o dia a dia de
-          desenvolvedores frontend.
+        <p className="text-lg text-zinc-400 mb-8 leading-relaxed max-w-2xl mx-auto">
+          {PROJECT.description}
         </p>
 
-        <div className="flex items-center justify-center gap-4 mb-8">
+        <div className="flex items-center justify-center gap-4">
           <Link
-            href="https://github.com/viniciusidacruz"
+            href={AUTHOR.github}
             target="_blank"
             className="flex items-center gap-2 px-5 py-2.5 bg-zinc-800 hover:bg-zinc-700 rounded-lg text-zinc-300 text-sm transition-colors border border-zinc-700"
           >
@@ -38,7 +36,7 @@ export default function Home() {
           </Link>
 
           <Link
-            href="https://github.com/viniciusidacruz/frontend_lab"
+            href={PROJECT.repository}
             target="_blank"
             className="flex items-center gap-2 px-5 py-2.5 bg-linear-to-r from-blue-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 rounded-lg text-white text-sm font-medium transition-all"
           >
@@ -47,22 +45,52 @@ export default function Home() {
             <ExternalLink className="w-3 h-3" />
           </Link>
         </div>
+      </header>
 
-        <div className="grid grid-cols-3 gap-4 text-center">
-          <div className="p-4 bg-zinc-800/50 rounded-xl border border-zinc-700/50">
-            <div className="text-2xl mb-1">🏷️</div>
-            <div className="text-sm text-zinc-400">HTML</div>
+      <section>
+        <div className="flex items-center justify-between mb-8">
+          <div>
+            <h2 className="text-2xl font-bold text-zinc-100">Conteúdos</h2>
+            <p className="text-zinc-500 text-sm mt-1">
+              Explore os temas disponíveis e futuros
+            </p>
           </div>
-          <div className="p-4 bg-zinc-800/50 rounded-xl border border-zinc-700/50">
-            <div className="text-2xl mb-1">⚡</div>
-            <div className="text-sm text-zinc-400">JavaScript</div>
-          </div>
-          <div className="p-4 bg-zinc-800/50 rounded-xl border border-zinc-700/50">
-            <div className="text-2xl mb-1">⚛️</div>
-            <div className="text-sm text-zinc-400">React</div>
+          <div className="flex items-center gap-3 text-xs">
+            <span className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-500" />
+              <span className="text-zinc-500">Disponível</span>
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-zinc-600" />
+              <span className="text-zinc-500">Em breve</span>
+            </span>
           </div>
         </div>
-      </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {CONTENT_CATEGORIES.map((category) => (
+            <ContentCard.Root key={category.title} category={category}>
+              <ContentCard.Items
+                items={category.items}
+                color={category.color}
+              />
+            </ContentCard.Root>
+          ))}
+        </div>
+      </section>
+
+      <footer className="mt-16 pt-8 border-t border-zinc-800 text-center">
+        <p className="text-zinc-500 text-sm">
+          Feito com 💙 por{" "}
+          <Link
+            href={AUTHOR.github}
+            target="_blank"
+            className="text-zinc-400 hover:text-zinc-200 transition-colors"
+          >
+            {AUTHOR.name}
+          </Link>
+        </p>
+      </footer>
     </div>
   );
 }
