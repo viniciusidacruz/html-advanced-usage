@@ -3,11 +3,10 @@
 import { ChevronLeft, Menu } from "lucide-react";
 
 import { cn } from "@/config/cn";
+import { MENU_SECTIONS } from "@/constants";
 import { useToggleAside } from "@/hooks/useToggleAside";
 
-import { NavLink } from "@/components";
-import { ListMenu } from "./ListMenu";
-import { Logo } from "./Logo";
+import { NavLink, ListMenu, Logo } from "@/components";
 
 export const Aside = () => {
   const { isOpen, toggleAside } = useToggleAside();
@@ -33,24 +32,18 @@ export const Aside = () => {
       <Logo collapsed={!isOpen} />
 
       <nav aria-label="Menu principal" className="overflow-y-auto flex-1">
-        <ListMenu.Root>
-          <ListMenu.Title>{isOpen ? "HTML" : ""}</ListMenu.Title>
-          <ListMenu.Item>
-            <NavLink href="/dialog">{isOpen ? "Dialog" : "Di"}</NavLink>
-          </ListMenu.Item>
-          <ListMenu.Item>
-            <NavLink href="/details">{isOpen ? "Details" : "De"}</NavLink>
-          </ListMenu.Item>
-          <ListMenu.Item>
-            <NavLink href="/datalist">{isOpen ? "Datalist" : "Da"}</NavLink>
-          </ListMenu.Item>
-          <ListMenu.Item>
-            <NavLink href="/template">{isOpen ? "Template" : "Te"}</NavLink>
-          </ListMenu.Item>
-          <ListMenu.Item>
-            <NavLink href="/picture">{isOpen ? "Picture" : "Pi"}</NavLink>
-          </ListMenu.Item>
-        </ListMenu.Root>
+        {MENU_SECTIONS.map((section) => (
+          <ListMenu.Root key={section.title}>
+            <ListMenu.Title>{isOpen ? section.title : ""}</ListMenu.Title>
+            {section.items.map((item) => (
+              <ListMenu.Item key={item.href}>
+                <NavLink href={item.href}>
+                  {isOpen ? item.label : item.shortLabel}
+                </NavLink>
+              </ListMenu.Item>
+            ))}
+          </ListMenu.Root>
+        ))}
       </nav>
     </aside>
   );
