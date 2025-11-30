@@ -19,8 +19,8 @@ export const Header = ({
       </Link>
     )}
 
-    <h1 className="text-4xl font-bold text-gray-800">{title}</h1>
+    <h1 className="text-4xl font-bold text-zinc-600">{title}</h1>
 
-    <p className="mt-4 text-lg text-gray-600 max-w-2xl">{description}</p>
+    <p className="mt-4 text-lg text-zinc-100 max-w-2xl">{description}</p>
   </header>
 );

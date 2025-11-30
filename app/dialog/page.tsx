@@ -41,9 +41,7 @@ export default function DialogPage() {
 
         <Document.Heading2>Código</Document.Heading2>
 
-        <pre className="text-sm text-gray-800 p-4 mb-6 max-w-2xl bg-gray-50 rounded-lg border border-gray-200 overflow-x-auto">
-          {DIALOG_CODE}
-        </pre>
+        <Document.Pre>{DIALOG_CODE}</Document.Pre>
 
         <Document.Heading2>Demonstração</Document.Heading2>
 
@@ -53,7 +51,12 @@ export default function DialogPage() {
           fechá-lo com a tecla ESC ou clicando nos botões.
         </Document.Paragraph>
 
-        <Button onClick={() => dialogDemo.current?.showModal()}>
+        <Button
+          onClick={() => {
+            console.log("Abrir Dialog", dialogDemo.current);
+            dialogDemo.current?.showModal();
+          }}
+        >
           Abrir Dialog
         </Button>
 
