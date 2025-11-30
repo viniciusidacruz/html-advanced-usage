@@ -76,21 +76,21 @@ O **Frontend Lab** é um repositório de estudos práticos focado em recursos na
 
 ### HTML Avançado
 
-| Elemento | Descrição | Status |
-| :------- | :-------- | :----: |
-| `<dialog>` | Modal nativo com backdrop, acessibilidade e fechamento com ESC | ✅ |
-| `<details>` | Accordion nativo sem JavaScript | 🔜 |
-| `<datalist>` | Autocomplete nativo para inputs | 🔜 |
-| `<template>` | Templates HTML reutilizáveis | 🔜 |
-| `<picture>` | Imagens responsivas otimizadas | 🔜 |
+| Elemento     | Descrição                                                      | Status |
+| :----------- | :------------------------------------------------------------- | :----: |
+| `<dialog>`   | Modal nativo com backdrop, acessibilidade e fechamento com ESC |   ✅   |
+| `<details>`  | Accordion nativo sem JavaScript                                |   🔜   |
+| `<datalist>` | Autocomplete nativo para inputs                                |   🔜   |
+| `<template>` | Templates HTML reutilizáveis                                   |   🔜   |
+| `<picture>`  | Imagens responsivas otimizadas                                 |   🔜   |
 
 ### JavaScript APIs
 
-| API | Descrição | Status |
-| :-- | :-------- | :----: |
-| Intersection Observer | Detecção de elementos na viewport | 🔜 |
-| Web Animations | Animações performáticas | 🔜 |
-| Clipboard API | Copiar/colar programaticamente | 🔜 |
+| API                   | Descrição                         | Status |
+| :-------------------- | :-------------------------------- | :----: |
+| Intersection Observer | Detecção de elementos na viewport |   🔜   |
+| Web Animations        | Animações performáticas           |   🔜   |
+| Clipboard API         | Copiar/colar programaticamente    |   🔜   |
 
 _Mais conteúdos em desenvolvimento..._
 
