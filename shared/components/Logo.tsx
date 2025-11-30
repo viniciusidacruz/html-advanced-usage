@@ -10,7 +10,7 @@ export const Logo = ({ collapsed = false }: LogoProps) => {
     return (
       <Link href="/" className="mb-10">
         <Image
-          src="/logo-collapsed.svg"
+          src="/assets/svg/logo-collapsed.svg"
           alt="Frontend Lab"
           width={40}
           height={40}
@@ -21,7 +21,7 @@ export const Logo = ({ collapsed = false }: LogoProps) => {
 
   return (
     <Link href="/" className="flex items-center gap-3 mb-10">
-      <Image src="/logo.svg" alt="Frontend Lab" width={44} height={44} />
+      <Image src="/assets/svg/logo.svg" alt="Frontend Lab" width={44} height={44} />
 
       <div className="flex flex-col">
         <span className="text-xl font-bold bg-linear-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent leading-tight">

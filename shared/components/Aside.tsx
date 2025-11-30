@@ -29,7 +29,7 @@ export const Aside = () => {
       >
         <Link href="/" className="flex items-center gap-3">
           <Image
-            src="/logo-collapsed.svg"
+            src="/assets/svg/logo-collapsed.svg"
             alt="Frontend Lab"
             width={32}
             height={32}
@@ -94,7 +94,12 @@ export const Aside = () => {
             !isOpen && "justify-center"
           )}
         >
-          <Image src="/github.svg" alt="GitHub" width={16} height={16} />
+          <Image
+            src="/assets/svg/github.svg"
+            alt="GitHub"
+            width={16}
+            height={16}
+          />
           {isOpen && (
             <>
               <span>GitHub</span>

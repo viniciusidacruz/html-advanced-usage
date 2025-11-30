@@ -5,9 +5,9 @@ export enum Language {
 }
 
 export const ICON_LANGUAGE: Record<Language, string> = {
-  [Language.HTML]: "/html.svg",
-  [Language.JAVASCRIPT]: "/js.svg",
-  [Language.REACT]: "/react.svg",
+  [Language.HTML]: "/assets/svg/html.svg",
+  [Language.JAVASCRIPT]: "/assets/svg/js.svg",
+  [Language.REACT]: "/assets/svg/react.svg",
 };
 
 export const LANGUAGE_TITLE: Record<Language, string> = {

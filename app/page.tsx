@@ -40,7 +40,12 @@ export default function Home() {
             target="_blank"
             className="flex items-center gap-2 px-5 py-2.5 bg-linear-to-r from-blue-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 rounded-lg text-white text-sm font-medium transition-all"
           >
-            <Image src="/github.svg" alt="GitHub" width={16} height={16} />
+            <Image
+              src="/assets/svg/github.svg"
+              alt="GitHub"
+              width={16}
+              height={16}
+            />
             Repositório
             <ExternalLink className="w-3 h-3" />
           </Link>
