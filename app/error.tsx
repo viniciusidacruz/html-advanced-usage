@@ -22,7 +22,7 @@ export default function ErrorPage({
   }, [error]);
 
   return (
-    <div className="max-w-5xl mx-auto px-8 py-12 min-h-[calc(100vh-4rem)] flex items-center justify-center">
+    <div className="max-w-5xl mx-auto px-4 py-8 sm:px-8 sm:py-12 min-h-[calc(100vh-4rem)] flex items-center justify-center">
       <div className="text-center w-full">
         <div className="mb-8">
           <Image
