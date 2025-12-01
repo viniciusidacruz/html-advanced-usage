@@ -1,11 +1,12 @@
 import Image from "next/image";
 import { Home, Search, ArrowRight } from "lucide-react";
+
 import { PROJECT } from "@/shared/constants";
 import {
   ErrorNumber,
   ActionButton,
   QuickLinks,
-} from "@/app/not-found/components";
+} from "@/modules/not-found/components";
 
 const QUICK_LINKS = [
   { href: "/", label: "Início" },
