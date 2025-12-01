@@ -2,13 +2,13 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { PanelLeftClose, PanelLeft, ExternalLink } from "lucide-react";
+import { PanelLeftClose, PanelLeft, NotebookPen } from "lucide-react";
 
 import { cn } from "@/shared/config";
 import { useToggleAside } from "@/shared/hooks";
 import { MENU_SECTIONS } from "@/shared/constants";
 
-import { NavLink, ListMenu } from "@/shared/components";
+import { NavLink, ListMenu, AsideLink } from "@/shared/components";
 
 export const Aside = () => {
   const { isOpen, toggleAside } = useToggleAside();
@@ -82,31 +82,25 @@ export const Aside = () => {
 
       <div
         className={cn(
-          "border-t border-zinc-800/50 py-4",
+          "border-t border-zinc-800/50 py-4 space-y-1",
           isOpen ? "px-3" : "px-2"
         )}
       >
-        <Link
+        <AsideLink
+          href="/blog"
+          label="Blog"
+          icon={{ type: "lucide", icon: NotebookPen }}
+          collapsed={!isOpen}
+          isExternal
+        />
+
+        <AsideLink
           href="https://github.com/viniciusidacruz/frontend_lab"
-          target="_blank"
-          className={cn(
-            "flex items-center gap-2 px-3 py-2 text-sm text-zinc-500 hover:text-zinc-300 rounded-lg hover:bg-zinc-800/50 transition-colors",
-            !isOpen && "justify-center"
-          )}
-        >
-          <Image
-            src="/assets/svg/github.svg"
-            alt="GitHub"
-            width={16}
-            height={16}
-          />
-          {isOpen && (
-            <>
-              <span>GitHub</span>
-              <ExternalLink size={12} className="ml-auto" />
-            </>
-          )}
-        </Link>
+          label="GitHub"
+          icon={{ type: "image", src: "/assets/svg/github.svg", alt: "GitHub" }}
+          collapsed={!isOpen}
+          isExternal
+        />
       </div>
     </aside>
   );

@@ -1,4 +1,5 @@
 export * from "./Aside";
+export * from "./AsideLink";
 export * from "./Button";
 export * from "./ContentCard";
 export * from "./Document";
