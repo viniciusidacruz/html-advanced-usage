@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { Home, RefreshCw, ArrowRight } from "lucide-react";
 
 import { PROJECT } from "@/shared/constants";
+import { ERROR_QUICK_LINKS } from "@/modules/error/constants/quick-links";
 import {
   ErrorNumber,
   ErrorMessage,
@@ -13,15 +14,9 @@ import {
   QuickLinks,
 } from "@/modules/error/components";
 
-const QUICK_LINKS = [
-  { href: "/", label: "Início" },
-  { href: "/blog", label: "Blog" },
-  { href: "/donate", label: "Doar" },
-];
-
 interface ErrorBoundaryProps {
-  error: Error & { digest?: string };
-  reset: () => void;
+  readonly error: Error & { readonly digest?: string };
+  readonly reset: () => void;
 }
 
 export default function ErrorPage({
@@ -65,7 +60,7 @@ export default function ErrorPage({
           </ResetButton>
         </div>
 
-        <QuickLinks links={QUICK_LINKS} />
+        <QuickLinks links={ERROR_QUICK_LINKS} />
       </div>
     </div>
   );

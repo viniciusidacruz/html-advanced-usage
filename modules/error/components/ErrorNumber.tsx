@@ -1,5 +1,5 @@
 interface ErrorNumberProps {
-  code?: string | number;
+  readonly code?: string | number;
 }
 
 export const ErrorNumber = ({ code = "500" }: ErrorNumberProps) => (
