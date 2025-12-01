@@ -73,3 +73,5 @@ export function generatePixPayload({
 
   return `${payloadWithoutCrc}${crc16}`;
 }
+
+

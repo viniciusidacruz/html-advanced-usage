@@ -19,3 +19,5 @@ export function computeCrc16Ccitt(input: string): string {
 
   return crc.toString(16).toUpperCase().padStart(4, "0");
 }
+
+

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { generatePixPayload } from "@/src/server/pix/emv";
+import { generatePixPayload } from "@/modules/donate/server/pix/emv";
 
 const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX_REQUESTS = 20;
