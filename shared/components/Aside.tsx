@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { PanelLeftClose, PanelLeft, NotebookPen } from "lucide-react";
+import { PanelLeftClose, PanelLeft, NotebookPen, Heart } from "lucide-react";
 
 import { cn } from "@/shared/config";
 import { useToggleAside } from "@/shared/hooks";
@@ -86,6 +86,13 @@ export const Aside = () => {
           isOpen ? "px-3" : "px-2"
         )}
       >
+        <AsideLink
+          href="/donate"
+          label="Doar"
+          icon={{ type: "lucide", icon: Heart }}
+          collapsed={!isOpen}
+        />
+
         <AsideLink
           href="/blog"
           label="Blog"

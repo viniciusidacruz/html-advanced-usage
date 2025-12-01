@@ -1,4 +1,7 @@
+import type { Metadata } from "next";
+
 import { getPosts } from "@/shared/queries";
+import { BLOG_METADATA, DEFAULT_METADATA } from "@/shared/constants";
 
 import {
   BlogHeader,
@@ -17,6 +20,23 @@ type BlogPageSearchParams = {
 
 type BlogPageProps = {
   searchParams?: BlogPageSearchParams;
+};
+
+export const metadata: Metadata = {
+  title: BLOG_METADATA.title,
+  description: BLOG_METADATA.description,
+  openGraph: {
+    title: BLOG_METADATA.title,
+    description: BLOG_METADATA.description,
+    url: BLOG_METADATA.url,
+    siteName: DEFAULT_METADATA.siteName,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: BLOG_METADATA.title,
+    description: BLOG_METADATA.description,
+  },
 };
 
 export default async function Blog({ searchParams }: BlogPageProps) {
