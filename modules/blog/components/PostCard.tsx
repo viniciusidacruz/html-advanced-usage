@@ -16,7 +16,7 @@ const Root = ({ post, children }: PostCardRootProps) => {
   return (
     <article
       className={cn(
-        "group relative rounded-xl border p-4 sm:p-6 transition-all duration-300",
+        "relative rounded-xl border p-4 sm:p-6 transition-all duration-300",
         "bg-zinc-900/50 border-zinc-800/50",
         "hover:bg-zinc-900 hover:border-zinc-700/50 hover:shadow-lg hover:shadow-blue-500/5",
         "w-full min-w-0",

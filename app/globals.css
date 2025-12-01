@@ -31,7 +31,7 @@
 
 @layer components {
   .btn-base {
-    @apply group flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-medium transition-all;
+    @apply flex items-center gap-2 px-6 py-3 rounded-lg text-sm font-medium transition-all;
   }
 
   .btn-primary {
