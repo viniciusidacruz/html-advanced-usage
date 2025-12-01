@@ -61,7 +61,6 @@ const buildSearchWhere = (search?: string) => {
     OR: [
       { title_contains: search },
       { excerpt_contains: search },
-      { content_contains: search },
     ],
   } satisfies Record<string, unknown>;
 };

@@ -5,10 +5,10 @@ import { ContentRenderer } from "./ContentRenderer";
 import { CONTENT_CATEGORIES, getContentDefinition } from "@/shared/content";
 
 type PageProps = {
-  params: {
+  params: Promise<{
     category: string;
     component: string;
-  };
+  }>;
 };
 
 export function generateStaticParams() {
@@ -20,8 +20,11 @@ export function generateStaticParams() {
   );
 }
 
-export function generateMetadata({ params }: PageProps): Metadata {
-  const content = getContentDefinition(params.category, params.component);
+export async function generateMetadata({
+  params,
+}: Readonly<PageProps>): Promise<Metadata> {
+  const { category, component } = await params;
+  const content = getContentDefinition(category, component);
 
   if (!content) {
     return {};
@@ -33,8 +36,9 @@ export function generateMetadata({ params }: PageProps): Metadata {
   };
 }
 
-export default function Page({ params }: PageProps) {
-  const content = getContentDefinition(params.category, params.component);
+export default async function Page({ params }: Readonly<PageProps>) {
+  const { category, component } = await params;
+  const content = getContentDefinition(category, component);
 
   if (!content) {
     notFound();
