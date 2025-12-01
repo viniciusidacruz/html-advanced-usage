@@ -91,7 +91,6 @@ export const Aside = () => {
           label="Blog"
           icon={{ type: "lucide", icon: NotebookPen }}
           collapsed={!isOpen}
-          isExternal
         />
 
         <AsideLink
