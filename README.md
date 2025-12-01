@@ -23,9 +23,9 @@
 <p align="center">
   <a href="#-sobre">Sobre</a> •
   <a href="#-tecnologias">Tecnologias</a> •
-  <a href="#-estrutura">Estrutura</a> •
   <a href="#-pré-requisitos">Pré-requisitos</a> •
   <a href="#%EF%B8%8F-como-executar">Como executar</a> •
+  <a href="#-arquitetura">Arquitetura</a> •
   <a href="#-contribuição">Contribuição</a>
 </p>
 
@@ -74,29 +74,14 @@ O **Frontend Lab** é um laboratório de estudos e experimentos práticos voltad
   </tr>
 </table>
 
-## 📁 Estrutura
-
-```
-├── app/                    # Páginas e rotas (Next.js App Router)
-├── shared/
-│   ├── components/         # Componentes reutilizáveis
-│   ├── constants/          # Constantes e dados
-│   ├── hooks/              # Hooks customizados
-│   └── config/             # Configurações e utilitários
-└── public/
-    └── assets/
-        ├── svg/            # Ícones e logos
-        └── images/         # Imagens
-```
-
 ## 📋 Pré-requisitos
 
 | Ferramenta | Versão    |
 | :--------- | :-------- |
 | Node.js    | ≥ 22.14.0 |
-| Yarn       | ≥ 1.22.19 |
+| npm        | ≥ 10.9.2  |
 
-> ⚠️ **Importante:** Este projeto utiliza **apenas Yarn** como gerenciador de pacotes. O uso de `npm` ou `pnpm` está bloqueado.
+> ⚠️ **Importante:** Este projeto utiliza **apenas npm** como gerenciador de pacotes. O uso de `yarn`, `pnpm` ou `bun` está bloqueado.
 
 Se você usa [nvm](https://github.com/nvm-sh/nvm), basta executar `nvm use` na raiz do projeto.
 
@@ -113,13 +98,17 @@ cd frontend_lab
 nvm use
 
 # Instale as dependências
-yarn install
+npm install
 
 # Execute o projeto
-yarn dev
+npm run dev
 ```
 
 Acesse [http://localhost:3000](http://localhost:3000) no navegador.
+
+## 🏗️ Arquitetura
+
+Para entender a estrutura do projeto, padrões de código, organização de módulos e decisões arquiteturais, consulte o arquivo [ARCHITECTURE.md](./ARCHITECTURE.md).
 
 ## 🤝 Contribuição
 
